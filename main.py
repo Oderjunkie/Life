@@ -35,6 +35,7 @@ def run_game():
 
         for event in pg.event.get():
             if event.type == pg.QUIT:
+                pg.quit()
                 sys.exit()
         for bug in bugs:
             bug.update(s._movement, s._rotation)
@@ -42,5 +43,9 @@ def run_game():
             rects_to_update.extend([bug, bug.left_eye, bug.right_eye])
         pg.display.update(rects_to_update)
 
-
-run_game()
+try:
+    run_game()
+except Exception as e:
+    pg.quit()
+    print('ERROR: '.format(e))
+    sys.exit()
