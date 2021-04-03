@@ -49,7 +49,7 @@ def run_game():
 
 try:
     run_game()
-except Exception as e:
+except Exception as error: # Catches the exception and puts the info into "error".
     pg.quit()
-    print('ERROR: '.format(e))
+    print('ERROR: '.format(error))
     sys.exit()
